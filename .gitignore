@@ -1,2 +1,3 @@
 .venv
-/allure_results/
+allure_results/*.json
+allure_results/*.txt
