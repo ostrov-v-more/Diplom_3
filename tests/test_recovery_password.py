@@ -1,13 +1,13 @@
 import allure
 import pytest
 
-from constants.constants import LOGIN_URL
+from constants.constants import BASE_URL, LOGIN_ENDPOINT
 from page_objects.login_page import LoginPage
 
 
 @pytest.fixture
 def start_page():
-    return LOGIN_URL
+    return BASE_URL+LOGIN_ENDPOINT
 
 
 class TestRecoveryPassword:

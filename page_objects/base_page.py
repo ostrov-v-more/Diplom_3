@@ -44,7 +44,6 @@ class BasePage:
         try:
             element.click()
         except:
-            print("!!!except_click_element")
             self.driver.execute_script("arguments[0].dispatchEvent(new MouseEvent('click', { bubbles: true }));", element)
 
     @allure.step("Кликаем на кликабельный элемент")

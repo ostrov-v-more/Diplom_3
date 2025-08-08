@@ -1,6 +1,6 @@
 import allure
 
-from constants import constants
+from constants.constants import BASE_URL, LOGIN_ENDPOINT
 from page_objects.header_page import HeaderPage
 from page_objects.profile_page import ProfilePage
 
@@ -23,4 +23,4 @@ class TestProfilePage:
         HeaderPage(driver).click_profile_button(driver.name)
         profile_page = ProfilePage(driver)
         profile_page.click_exit()
-        assert profile_page.current_url() == constants.LOGIN_URL
+        assert profile_page.current_url() == BASE_URL + LOGIN_ENDPOINT

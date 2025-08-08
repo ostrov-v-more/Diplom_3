@@ -7,14 +7,14 @@ from page_objects.main_page import MainPage
 
 class TestFeedPage:
 
-    @allure.step("Eсли кликнуть на заказ, откроется всплывающее окно с деталями")
+    @allure.title("Eсли кликнуть на заказ, откроется всплывающее окно с деталями")
     def test_open_order_details(self, driver):
         HeaderPage(driver).click_order_button()
         feed_page = FeedPage(driver)
         feed_page.click_order()
         assert feed_page.order_feed_modal_is_visible()
 
-    @allure.step("Заказ пользователя отображается в ленте заказов")
+    @allure.title("Заказ пользователя отображается в ленте заказов")
     def test_user_order_show_in_feed(self, driver, login_new_user, user_order):
         expected_order_number = "#0" + user_order
         HeaderPage(driver).click_order_button()
@@ -22,7 +22,7 @@ class TestFeedPage:
         order_number = feed_page.find_orders_number()
         assert expected_order_number in order_number
 
-    @allure.step("Заказ пользователя отображается в работе")
+    @allure.title("Заказ пользователя отображается в работе")
     def test_user_order_in_work(self, driver, login_new_user, user_order):
         expected_order_number = "0" + user_order
         HeaderPage(driver).click_order_button()
@@ -30,7 +30,7 @@ class TestFeedPage:
         order_number = feed_page.check_order_in_work()
         assert expected_order_number == order_number
 
-    @allure.step("Увеличение счетчиков при заказе бургера")
+    @allure.title("Увеличение счетчиков при заказе бургера")
     def test_up_count_order(self, driver, login_new_user):
         header_page = HeaderPage(driver)
         feed_page = FeedPage(driver)

@@ -2,7 +2,7 @@
 import allure
 import pytest
 
-from constants.constants import LOGIN_URL
+from constants.constants import BASE_URL, LOGIN_ENDPOINT
 from page_objects.header_page import HeaderPage
 from page_objects.main_page import MainPage
 from page_objects.profile_page import ProfilePage
@@ -23,7 +23,7 @@ class TestHeaderPage:
         assert MainPage(driver).check_visible_feed_text()
 
     @allure.title("Переход по клику в Конструктор")
-    @pytest.mark.parametrize("start_page", [LOGIN_URL])
+    @pytest.mark.parametrize("start_page", [BASE_URL + LOGIN_ENDPOINT])
     def test_go_constructor(self, driver):
         HeaderPage(driver).click_constructor_button()
         assert MainPage(driver).check_visible_constructor_text()

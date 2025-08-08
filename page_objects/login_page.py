@@ -38,7 +38,6 @@ class LoginPage(BasePage):
 
     @allure.step("Кликаем кнопку 'Войти'")
     def click_button_enter(self):
-        print("Кликаем кнопку 'Войти'")
         self.click_button(LoginLocators.LOGIN_BUTTON)
 
     def check_button_enter(self):
@@ -89,6 +88,11 @@ class LoginPage(BasePage):
         self.set_password(password)
         self.click_button_enter()
 
+    @allure.step("Ждем прогрузку страницы авторизации")
+    def wait_load_login_page(self):
+        self.find_visible_element(LoginLocators.EMAIL).is_displayed()
+        self.find_visible_element(LoginLocators.PASSWORD).is_displayed()
+        self.find_visible_element(LoginLocators.LOGIN_BUTTON).is_displayed()
 
 
 
